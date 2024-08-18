@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0bc8e78076f7bb47894253fa280c634, type: 3}
-  m_Name: New Recipe SO 2
+  m_Script: {fileID: 11500000, guid: 8dc21a10037aee741b16be775dd5891f, type: 3}
+  m_Name: Seaweed
   m_EditorClassIdentifier: 
-  KitchenObjectSOList:
-  - {fileID: 11400000, guid: d14d55198bb20eb47a9b5c16faccc529, type: 2}
-  RecipeImage: {fileID: 21300000, guid: 5c0b1b4182acd404795de6652f555515, type: 3}
+  KitchenObject: {fileID: 7651304545939822351, guid: 168c9ace1f75b6f4a9f651fd973609b4, type: 3}
+  Sprite: {fileID: 21300000, guid: 2533d0f680643c645afb783cc65e6546, type: 3}
+  ObjectName: Sushi

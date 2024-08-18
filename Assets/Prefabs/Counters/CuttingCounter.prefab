@@ -60,6 +60,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2236166739638900418, guid: e57032edcad26044a836221c0824e856, type: 3}
       insertIndex: 2
       addedObject: {fileID: 4436390533289217598}
+    - targetCorrespondingSourceObject: {fileID: 2236166739638900418, guid: e57032edcad26044a836221c0824e856, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 6013962201218337198}
   m_SourcePrefab: {fileID: 100100000, guid: e57032edcad26044a836221c0824e856, type: 3}
 --- !u!1 &8004335639023290714 stripped
 GameObject:
@@ -79,4 +82,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cuttingRecipeSOArray:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 54c9941e08e73fb4d9f66d77e6528031, type: 2}
+--- !u!114 &6013962201218337198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004335639023290714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd675494e98d6ea478bf962bce229b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  barImage: {fileID: 0}

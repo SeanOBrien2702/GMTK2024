@@ -9,6 +9,12 @@ public class CuttingCounter : Counter, IHasProgress
 
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
     private int cuttingProgress;
+    Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     new public static void ResetStaticData()
     {
@@ -104,6 +110,7 @@ public class CuttingCounter : Counter, IHasProgress
 
             if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax) 
             {
+                animator.SetTrigger("Transition");
                 KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
                 Destroy(GetKitchenObject().gameObject);
                 SetKitchenObject(Instantiate(outputKitchenObjectSO.KitchenObject));

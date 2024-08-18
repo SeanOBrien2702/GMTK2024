@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: New Recipe SO
   m_EditorClassIdentifier: 
   KitchenObjectSOList:
-  - {fileID: 11400000, guid: 6f7ec4503e171fc44a6ff23a349b8cc1, type: 2}
-  RecipeImage: {fileID: 21300000, guid: c5eafe177850eea4198b4b7f8b5c19fd, type: 3}
+  - {fileID: 11400000, guid: 96cd60e2ca055694e955e3ea4ffb4c07, type: 2}
+  - {fileID: 11400000, guid: 50dcdb2f2bb1d3549b1dea8b6a991be0, type: 2}
+  RecipeImage: {fileID: 21300000, guid: a349f7d4098b24c498c1b74cb67b1ae5, type: 3}
