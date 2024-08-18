@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
     public static event EventHandler OnPickUp;
     public static event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     Counter selectedCounter;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
 
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
@@ -18,9 +20,6 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
 
     Vector2 direction = Vector2.zero;
     Vector2 lastDirection = Vector2.zero;
-    float horizontal;
-    float vertical;
-    float angle;
     private KitchenObject kitchenObject;
 
     [SerializeField] float runSpeed = 0.5f;
@@ -29,6 +28,8 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         body = GetComponent<Rigidbody2D>();
         TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
     }
@@ -48,35 +49,36 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
         }
         Interactions();
         LookAtDirection();
-        
-            
+        if (direction.magnitude > 0)
+        {
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
     }
 
     void LookAtDirection()
     {
-        //if (direction.magnitude < 0) return;
-        //if (direction != Vector2.zero)
-        //{
-        //    lastDirection = direction;
-        //}
-        if (lastDirection != direction) return;
-        //float rotateSpeed = 10f;
-        //transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
-        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        if(lastDirection.x >= 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     void FixedUpdate()
     {
         body.velocity = direction.normalized * runSpeed;
+       
     }
 
     void Interactions()
     {
-        //Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalized();
-
-        //Vector3 moveDir = new Vector3(direction.x, 0f, inr.y);
-
         if (direction != Vector2.zero)
         {
             lastDirection = direction;
@@ -139,7 +141,6 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
             OnPickUp?.Invoke(this, EventArgs.Empty);
         }
     }
-
 
     private void TrashCounter_OnAnyObjectTrashed(object sender, EventArgs e)
     {
