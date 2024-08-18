@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dc21a10037aee741b16be775dd5891f, type: 3}
-  m_Name: RiceMolded
+  m_Name: SeaweedBurned
   m_EditorClassIdentifier: 
-  KitchenObject: {fileID: 7651304545939822351, guid: 3141daf45b2947649b7bd8bdc2e2f76b, type: 3}
-  Sprite: {fileID: 21300000, guid: a21fb2199405b60438f4ad7da1019e5d, type: 3}
+  KitchenObject: {fileID: 7651304545939822351, guid: f4c5ea2a4a44e15419c11c944543def5, type: 3}
+  Sprite: {fileID: 21300000, guid: 5d0ff160fdbb7ae4e8f791419e097b9b, type: 3}
   ObjectName: 

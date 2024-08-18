@@ -8,6 +8,8 @@ public class KitchenObject : MonoBehaviour
 
     protected virtual void Awake()
     {
+        GetComponent<SpriteRenderer>().sprite = kitchenObjectSO.Sprite;
+        
         //followTransform = GetComponent<FollowTransform>();
     }
 

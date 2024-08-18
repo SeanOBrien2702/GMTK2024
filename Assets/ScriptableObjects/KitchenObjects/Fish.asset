@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Fish
   m_EditorClassIdentifier: 
   KitchenObject: {fileID: 7651304545939822351, guid: a56a450c0f2108240bc0c5d25f91b112, type: 3}
-  Sprite: {fileID: 21300000, guid: b2503d9052469d14097de42cb68602bf, type: 3}
+  Sprite: {fileID: 21300000, guid: 696b4e80d20ebff498a5abbc8fc0eb6e, type: 3}
   ObjectName: 

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Rice
   m_EditorClassIdentifier: 
   KitchenObject: {fileID: 7651304545939822351, guid: ca30f96fb1a7c5349b9ceac73cf2b67f, type: 3}
-  Sprite: {fileID: 21300000, guid: e1ae57ea82cbb774aacbabdcd6720510, type: 3}
+  Sprite: {fileID: 21300000, guid: 90a4ca6196d69fd499b36b3b35c9b058, type: 3}
   ObjectName: 

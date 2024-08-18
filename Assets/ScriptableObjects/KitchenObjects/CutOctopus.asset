@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc21a10037aee741b16be775dd5891f, type: 3}
   m_Name: CutOctopus
   m_EditorClassIdentifier: 
-  KitchenObject: {fileID: 7651304545939822351, guid: 589d5b58cebf9f04c8aea91c371d5ca2, type: 3}
-  Sprite: {fileID: 21300000, guid: ce926c855ec3e144bb9050694a46c9f5, type: 3}
+  KitchenObject: {fileID: 7651304545939822351, guid: facda38b4ddcfef4d833e534ad1d3561, type: 3}
+  Sprite: {fileID: 21300000, guid: 358571f060f1d134cba264a8b418d8d3, type: 3}
   ObjectName: 
