@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dc21a10037aee741b16be775dd5891f, type: 3}
-  m_Name: Rice
+  m_Script: {fileID: 11500000, guid: 0e819837f7f6db84dac7a1624f76423a, type: 3}
+  m_Name: RecipeListSO
   m_EditorClassIdentifier: 
-  KitchenObject: {fileID: 7651304545939822351, guid: ca30f96fb1a7c5349b9ceac73cf2b67f, type: 3}
-  Sprite: {fileID: 21300000, guid: 851a97a28fe50ca40bae97b80045f5ec, type: 3}
-  ObjectName: 
+  recipeSOList:
+  - {fileID: 11400000, guid: a673ccd62ffb14c4281f9d699425b06d, type: 2}
+  - {fileID: 11400000, guid: 52f74ba7e8e14e144a923105d077841e, type: 2}

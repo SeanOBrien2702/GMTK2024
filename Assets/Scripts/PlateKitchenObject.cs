@@ -34,14 +34,15 @@ public class PlateKitchenObject : KitchenObject
         else 
         {
             //AddIngredient(KitchenGameMultiplayer.Instance.GetKitchenObjectSOIndex(kitchenObjectSO));
-
+            AddIngredient(kitchenObjectSO);
             return true;
         }
     }
 
-    private void AddIngredient(int kitchenObjectSOIndex) 
+    //private void AddIngredient(int kitchenObjectSOIndex) 
+    private void AddIngredient(KitchenObjectSO kitchenObjectSO)
     {
-        KitchenObjectSO kitchenObjectSO = null;// KitchenGameMultiplayer.Instance.GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
+        //KitchenObjectSO kitchenObjectSO = null;// KitchenGameMultiplayer.Instance.GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
 
         kitchenObjectSOList.Add(kitchenObjectSO);
 

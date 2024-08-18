@@ -98,4 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kitchenObjectSO: {fileID: 11400000, guid: 40c2e8d3879985b4a98b44f35cb71d63, type: 2}
-  validKitchenObjectSOList: []
+  validKitchenObjectSOList:
+  - {fileID: 11400000, guid: 96c477f350fc67e41a60a375a39f771d, type: 2}
+  - {fileID: 11400000, guid: 40c2e8d3879985b4a98b44f35cb71d63, type: 2}
+  - {fileID: 11400000, guid: e4e8fc0eb93ed96409cafd31622722d5, type: 2}
+  - {fileID: 11400000, guid: 0bdd9b5545cf48444b4910e6bf495888, type: 2}
+  - {fileID: 11400000, guid: 6f7ec4503e171fc44a6ff23a349b8cc1, type: 2}

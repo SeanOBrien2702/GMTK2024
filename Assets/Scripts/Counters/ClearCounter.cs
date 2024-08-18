@@ -27,7 +27,7 @@ public class ClearCounter : Counter
                     // Player is holding a Plate
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO())) 
                     {
-                        Destroy(GetKitchenObject());
+                        Destroy(GetKitchenObject().gameObject);
                     }
                 } 
                 else 
@@ -38,7 +38,7 @@ public class ClearCounter : Counter
                         // Counter is holding a Plate
                         if (plateKitchenObject.TryAddIngredient(player.GetKitchenObject().GetKitchenObjectSO())) 
                         {
-                            Destroy(player.GetKitchenObject());
+                            Destroy(player.GetKitchenObject().gameObject);
                         }
                     }
                 }

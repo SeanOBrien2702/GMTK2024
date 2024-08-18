@@ -11,9 +11,13 @@ public class DeliveryCounter : Counter
     {
         if (player.HasPlate()) 
         {
-
-            //DeliveryManager.Instance.DeliverRecipe(plateKitchenObject);
-            Destroy(player.GetKitchenObject());
+            if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+            {
+                // Only accepts Plates
+                DeliveryController.Instance.DeliverRecipe(plateKitchenObject);
+                Destroy(player.GetKitchenObject().gameObject);
+                player.SetKitchenObject(null);
+            }
 
         }
     }

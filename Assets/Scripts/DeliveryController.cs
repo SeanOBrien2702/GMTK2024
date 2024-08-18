@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeliveryManager : MonoBehaviour
+public class DeliveryController : MonoBehaviour
 {
     public event EventHandler OnRecipeSpawned;
     public event EventHandler OnRecipeCompleted;
     public event EventHandler OnRecipeSuccess;
     public event EventHandler OnRecipeFailed;
 
-    public static DeliveryManager Instance { get; private set; }
+    public static DeliveryController Instance { get; private set; }
 
     [SerializeField] private RecipeListSO recipeListSO;
 
@@ -34,6 +34,7 @@ public class DeliveryManager : MonoBehaviour
 
             if (!MiniGameManager.Instance.IsPlayingMinigame && waitingRecipeSOList.Count < waitingRecipesMax)
             {
+                Debug.Log(waitingRecipeSOList.Count + " " + waitingRecipesMax);
                 int waitingRecipeSOIndex = UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count);
 
                 SpawnNewWaitingRecipe(waitingRecipeSOIndex);
@@ -56,11 +57,11 @@ public class DeliveryManager : MonoBehaviour
         {
             RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
 
-            if (waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
+            if (waitingRecipeSO.KitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
             {
                 // Has the same number of ingredients
                 bool plateContentsMatchesRecipe = true;
-                foreach (KitchenObjectSO recipeKitchenObjectSO in waitingRecipeSO.kitchenObjectSOList)
+                foreach (KitchenObjectSO recipeKitchenObjectSO in waitingRecipeSO.KitchenObjectSOList)
                 {
                     // Cycling through all ingredients in the Recipe
                     bool ingredientFound = false;
