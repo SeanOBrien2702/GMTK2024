@@ -111,11 +111,18 @@ public class CuttingCounter : Counter, IHasProgress
             if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax) 
             {
                 animator.SetTrigger("Transition");
-                KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
-                Destroy(GetKitchenObject().gameObject);
-                SetKitchenObject(Instantiate(outputKitchenObjectSO.KitchenObject));
+                //KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
+                //Destroy(GetKitchenObject().gameObject);
+                //SetKitchenObject(Instantiate(outputKitchenObjectSO.KitchenObject));
             }
         }
+    }
+
+    public void FoodHiddenAnimation()
+    {
+        KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
+        Destroy(GetKitchenObject().gameObject);
+        SetKitchenObject(Instantiate(outputKitchenObjectSO.KitchenObject));
     }
 
     private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO) 

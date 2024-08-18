@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
             lastDirection = direction;
         }
 
-        float interactDistance = 2f;
+        float interactDistance = 4f;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, lastDirection, interactDistance, counterMask);
         Debug.DrawRay(transform.position, lastDirection * interactDistance, Color.green);
         if (hit.collider != null)
