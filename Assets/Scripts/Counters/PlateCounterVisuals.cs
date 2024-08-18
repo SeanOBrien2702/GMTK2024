@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlateCounterVisuals : MonoBehaviour
 {
+    [SerializeField] Transform platePosition;
     [SerializeField] Transform platePrefab;
     Stack<GameObject> plateStack = new Stack<GameObject>();
 
@@ -27,7 +28,7 @@ public class PlateCounterVisuals : MonoBehaviour
 
     private void PlateCounter_OnPlateSpawned(object sender, EventArgs e)
     {
-        Transform plateVisualTransform = Instantiate(platePrefab, gameObject.transform);
+        Transform plateVisualTransform = Instantiate(platePrefab, platePosition);
 
         float plateOffsetY = .15f;
         plateVisualTransform.localPosition = new Vector3(0, plateOffsetY * plateStack.Count, 0);

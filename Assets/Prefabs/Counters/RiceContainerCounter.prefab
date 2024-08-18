@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 761249725831917776, guid: ab75a2c04af73814db5b28f55cbba36e, type: 3}
       propertyPath: m_Name
-      value: ContainerCounter
+      value: RiceContainerCounter
       objectReference: {fileID: 0}
     - target: {fileID: 2217592258458628076, guid: ab75a2c04af73814db5b28f55cbba36e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2217592258458628076, guid: ab75a2c04af73814db5b28f55cbba36e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 2217592258458628076, guid: ab75a2c04af73814db5b28f55cbba36e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2217592258458628076, guid: ab75a2c04af73814db5b28f55cbba36e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2217592258458628076, guid: ab75a2c04af73814db5b28f55cbba36e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2217592258458628076, guid: ab75a2c04af73814db5b28f55cbba36e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2217592258458628076, guid: ab75a2c04af73814db5b28f55cbba36e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3719702639118062760, guid: ab75a2c04af73814db5b28f55cbba36e, type: 3}
+      propertyPath: kitchenObjectPrefab
+      value: 
+      objectReference: {fileID: 7651304545939822351, guid: ca30f96fb1a7c5349b9ceac73cf2b67f, type: 3}
+    - target: {fileID: 4961848395832346423, guid: ab75a2c04af73814db5b28f55cbba36e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b59f365e62d2f57428163fe245c7fe1d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

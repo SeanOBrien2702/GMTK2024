@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContainerCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 5856073186797855013, guid: e57032edcad26044a836221c0824e856, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7621048409003685707, guid: e57032edcad26044a836221c0824e856, type: 3}
     - {fileID: 3041658265173293675, guid: e57032edcad26044a836221c0824e856, type: 3}
@@ -79,4 +83,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0395a8c8741b8d4b944df318f9b52b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kitchenObject: {fileID: 7651304545939822351, guid: 589d5b58cebf9f04c8aea91c371d5ca2, type: 3}
+  kitchenObjectPrefab: {fileID: 0}

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6320827197880457360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6055679625088303437}
+  m_Layer: 6
+  m_Name: PlatePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6055679625088303437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320827197880457360}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2217592258458628076}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1556263442097858066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +41,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 819247428338076158, guid: e57032edcad26044a836221c0824e856, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 819247428338076158, guid: e57032edcad26044a836221c0824e856, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26,15 +57,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 819247428338076158, guid: e57032edcad26044a836221c0824e856, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 819247428338076158, guid: e57032edcad26044a836221c0824e856, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 819247428338076158, guid: e57032edcad26044a836221c0824e856, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 819247428338076158, guid: e57032edcad26044a836221c0824e856, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -52,15 +83,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlateCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 5856073186797855013, guid: e57032edcad26044a836221c0824e856, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f66a0d7e11d0c444c9df059ddbb5c818, type: 3}
     m_RemovedComponents:
     - {fileID: 7621048409003685707, guid: e57032edcad26044a836221c0824e856, type: 3}
     - {fileID: 3041658265173293675, guid: e57032edcad26044a836221c0824e856, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 819247428338076158, guid: e57032edcad26044a836221c0824e856, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6055679625088303437}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2236166739638900418, guid: e57032edcad26044a836221c0824e856, type: 3}
       insertIndex: 2
       addedObject: {fileID: 3933749850289938567}
+    - targetCorrespondingSourceObject: {fileID: 2236166739638900418, guid: e57032edcad26044a836221c0824e856, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1294117697847621282}
   m_SourcePrefab: {fileID: 100100000, guid: e57032edcad26044a836221c0824e856, type: 3}
 --- !u!1 &761249725831917776 stripped
 GameObject:
@@ -80,3 +121,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platePrefab: {fileID: -4567619628648246258, guid: 810acfa60c34f574d9b8fb092c65b101, type: 3}
+--- !u!114 &1294117697847621282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761249725831917776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46181ecf6f5e2d74b8b0b292d3852578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platePosition: {fileID: 6055679625088303437}
+  platePrefab: {fileID: 113116537413505449, guid: 810acfa60c34f574d9b8fb092c65b101, type: 3}
+--- !u!4 &2217592258458628076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 819247428338076158, guid: e57032edcad26044a836221c0824e856, type: 3}
+  m_PrefabInstance: {fileID: 1556263442097858066}
+  m_PrefabAsset: {fileID: 0}

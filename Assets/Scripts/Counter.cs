@@ -6,6 +6,7 @@ public class Counter : MonoBehaviour, IKitchenObjectParent
 {
     public static event EventHandler OnAnyObjectPlacedHere;
     private KitchenObject kitchenObject;
+    [SerializeField] Transform counterTop;
 
     public static void ResetStaticData()
     {
@@ -28,7 +29,14 @@ public class Counter : MonoBehaviour, IKitchenObjectParent
 
         if (kitchenObject != null)
         {
-            kitchenObject.transform.parent = transform;
+            if(counterTop)
+            {
+                kitchenObject.transform.parent = counterTop;
+            }
+            else
+            {
+                kitchenObject.transform.parent = transform;
+            }     
             kitchenObject.transform.localPosition = Vector3.zero;
             OnAnyObjectPlacedHere?.Invoke(this, EventArgs.Empty);
         }
