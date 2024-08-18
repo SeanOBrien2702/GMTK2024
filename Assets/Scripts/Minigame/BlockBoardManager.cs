@@ -39,7 +39,13 @@ public class BlockBoardManager : MonoBehaviour {
         FoodBlockData data = _foodBlocksData[randomBlockIndex];
 
         activeBlock.Initialize(this, spawnPosition, data);
-        SetBlock(activeBlock);
+
+        if (IsValidPosition(activeBlock.position)) {
+            SetBlock(activeBlock);
+        } else {
+            // Game over
+            tilemap.ClearAllTiles();
+        }
     }
 
     public void SetBlock(FoodBlock block) {

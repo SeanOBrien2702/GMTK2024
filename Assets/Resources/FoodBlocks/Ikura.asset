@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodName: Ikura
   foodTile: {fileID: 11400000, guid: 9598b598564d9ac4992fca430706fc98, type: 2}
-  largeFoodTile: {fileID: 11400000, guid: 9598b598564d9ac4992fca430706fc98, type: 2}
+  largeBottomLeftTile: {fileID: 11400000, guid: 348fef471775ed149891ccda2b3660a6, type: 2}
+  largeBottomRightTile: {fileID: 11400000, guid: 1ccc9f78b798f1c409e78520e1906ba4, type: 2}
+  largeTopLeftTile: {fileID: 11400000, guid: 38ac47bd1f0957349b922e17b0843220, type: 2}
+  largeTopRightTile: {fileID: 11400000, guid: 39b12dcd5dd54b042bc31396442843f6, type: 2}
+  isScrap: 0

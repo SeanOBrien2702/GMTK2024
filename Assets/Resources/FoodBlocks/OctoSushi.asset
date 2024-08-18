@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodName: Octo Sushi
   foodTile: {fileID: 11400000, guid: 48d5c26780d17c14aa547df37e6ef213, type: 2}
-  largeFoodTile: {fileID: 11400000, guid: 48d5c26780d17c14aa547df37e6ef213, type: 2}
+  largeBottomLeftTile: {fileID: 11400000, guid: 67926ea4cef332841a6a04ef5dd96abe, type: 2}
+  largeBottomRightTile: {fileID: 11400000, guid: b644e349657f84e4489ee104c36c15f2, type: 2}
+  largeTopLeftTile: {fileID: 11400000, guid: cbe7f522a91768e40a6f3ef0bf9bf972, type: 2}
+  largeTopRightTile: {fileID: 11400000, guid: 56a26166bf5426c488e1c99f269eeebd, type: 2}
+  isScrap: 0
