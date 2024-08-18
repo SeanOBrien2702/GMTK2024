@@ -29,7 +29,7 @@ public class CuttingCounter : Counter, IHasProgress
                     // Player carrying something that can be Cut
                     KitchenObject kitchenObject = player.GetKitchenObject();
                     kitchenObject.SetKitchenObjectParent(this);
-
+                    player.SetKitchenObject(null);
                     InteractLogicPlaceObjectOnCounter();
                 }
             } 
@@ -49,15 +49,15 @@ public class CuttingCounter : Counter, IHasProgress
                     // Player is holding a Plate
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO())) 
                     {
-                        Destroy(GetKitchenObject());
+                        Destroy(GetKitchenObject().gameObject);
                     }
                 }
             } 
             else 
             {
                 // Player is not carrying anything
-                player.ClearKitchenObject();
-                GetKitchenObject().SetKitchenObjectParent(this);
+                GetKitchenObject().SetKitchenObjectParent(player);
+                ClearKitchenObject();
             }
         }
     }
@@ -105,9 +105,8 @@ public class CuttingCounter : Counter, IHasProgress
             if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax) 
             {
                 KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
-                Destroy(GetKitchenObject());
-                //Transform op = Instantiate(outputKitchenObjectSO.KitchenObject, this.transform);
-                //KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
+                Destroy(GetKitchenObject().gameObject);
+                SetKitchenObject(Instantiate(outputKitchenObjectSO.KitchenObject));
             }
         }
     }
