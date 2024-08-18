@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
         direction.y = Input.GetAxisRaw("Vertical");
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Debug.Log(kitchenObject);
+            Debug.Log("player " + kitchenObject);
         }
         Interactions();
         LookAtDirection();

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dc21a10037aee741b16be775dd5891f, type: 3}
-  m_Name: Meat
+  m_Name: BurntMeat
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  sprite: {fileID: 21300000, guid: f3c75018cfa84154ca1094a281a4b168, type: 3}
-  objectName: Meat
+  KitchenObject: {fileID: 7651304545939822351, guid: 56bf3c4ec02a5154baede35a4e919f0e, type: 3}
+  Sprite: {fileID: 21300000, guid: 08d5aa3a5af2620499235f308f70a949, type: 3}
+  ObjectName: 

@@ -25,9 +25,10 @@ public class CuttingCounter : Counter, IHasProgress
                 // Player is carrying something
                 if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO())) 
                 {
+                    
                     // Player carrying something that can be Cut
                     KitchenObject kitchenObject = player.GetKitchenObject();
-                    //kitchenObject.SetKitchenObjectParent(this);
+                    kitchenObject.SetKitchenObjectParent(this);
 
                     InteractLogicPlaceObjectOnCounter();
                 }
@@ -105,7 +106,7 @@ public class CuttingCounter : Counter, IHasProgress
             {
                 KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
                 Destroy(GetKitchenObject());
-                Transform op = Instantiate(outputKitchenObjectSO.prefab, this.transform);
+                //Transform op = Instantiate(outputKitchenObjectSO.KitchenObject, this.transform);
                 //KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
             }
         }
