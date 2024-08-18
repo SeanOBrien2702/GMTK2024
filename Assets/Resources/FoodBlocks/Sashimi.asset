@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sashimi
   m_EditorClassIdentifier: 
   foodName: Sashimi
+  foodSprite: {fileID: 21300000, guid: a7587e4f35d287e42a9c0b5646a86f8a, type: 3}
   foodTile: {fileID: 11400000, guid: 51c5b9fecdb0d9e41a17b62da1f7d232, type: 2}
   largeBottomLeftTile: {fileID: 11400000, guid: 184242811f152c948aa4ad3ea3ff888c, type: 2}
   largeBottomRightTile: {fileID: 11400000, guid: 99847a254f376bf4e895ba6c6d47a9aa, type: 2}

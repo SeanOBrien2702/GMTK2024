@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sushi
   m_EditorClassIdentifier: 
   foodName: Sushi
+  foodSprite: {fileID: 21300000, guid: 1045f8f96a54e4648802bcfc733273c3, type: 3}
   foodTile: {fileID: 11400000, guid: ccf9dbc14a5c60740a4c187c1a1e8e42, type: 2}
   largeBottomLeftTile: {fileID: 11400000, guid: 818c9c75894121242bd7bacc6ca25c0a, type: 2}
   largeBottomRightTile: {fileID: 11400000, guid: 01a0f38312633e446b74735804077841, type: 2}

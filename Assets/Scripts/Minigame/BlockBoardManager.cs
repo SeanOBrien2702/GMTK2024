@@ -6,8 +6,12 @@ public class BlockBoardManager : MonoBehaviour {
     public FoodBlock activeBlock { get; private set; }
 
     private FoodBlockData[] _foodBlocksData;
+
     public Vector3Int spawnPosition;
     public Vector2Int boardSize;
+    public SpriteRenderer[] upcomingBlockSprites;
+
+    private FoodBlockData[] upcomingBlocks;
 
     public RectInt bounds {
         get {
@@ -27,6 +31,13 @@ public class BlockBoardManager : MonoBehaviour {
         object[] loadedFoodBlocks = Resources.LoadAll("FoodBlocks", typeof(FoodBlockData));
         _foodBlocksData = new FoodBlockData[loadedFoodBlocks.Length];
         loadedFoodBlocks.CopyTo(_foodBlocksData, 0);
+
+        upcomingBlocks = new FoodBlockData[upcomingBlockSprites.Length];
+        for (int i = 0; i < upcomingBlockSprites.Length; i++) {
+            int randomBlockIndex = Random.Range(0, _foodBlocksData.Length);
+            upcomingBlocks[i] = _foodBlocksData[randomBlockIndex];
+            upcomingBlockSprites[i].sprite = _foodBlocksData[randomBlockIndex].foodSprite;
+        }
     }
 
     private void SetComponents() {
@@ -35,8 +46,14 @@ public class BlockBoardManager : MonoBehaviour {
     }
 
     public void SpawnBlock() {
+        FoodBlockData data = upcomingBlocks[0];
+        for (int i = 0; i < upcomingBlocks.Length - 1; i++) {
+            upcomingBlocks[i] = upcomingBlocks[i+1];
+            upcomingBlockSprites[i].sprite = upcomingBlocks[i].foodSprite;
+        }
         int randomBlockIndex = Random.Range(0, _foodBlocksData.Length);
-        FoodBlockData data = _foodBlocksData[randomBlockIndex];
+        upcomingBlocks[upcomingBlocks.Length-1] = _foodBlocksData[randomBlockIndex];
+        upcomingBlockSprites[upcomingBlockSprites.Length-1].sprite = _foodBlocksData[randomBlockIndex].foodSprite;
 
         activeBlock.Initialize(this, spawnPosition, data);
 

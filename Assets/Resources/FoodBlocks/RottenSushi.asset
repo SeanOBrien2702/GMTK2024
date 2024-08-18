@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: RottenSushi
   m_EditorClassIdentifier: 
   foodName: Rotten Sushi
+  foodSprite: {fileID: 21300000, guid: da614ba2aaeb3e84a8a12c4bf86272b1, type: 3}
   foodTile: {fileID: 11400000, guid: b5205ca1a05d6f04e9e6a691d4f86b79, type: 2}
-  largeFoodTile: {fileID: 11400000, guid: b5205ca1a05d6f04e9e6a691d4f86b79, type: 2}
+  largeBottomLeftTile: {fileID: 0}
+  largeBottomRightTile: {fileID: 0}
+  largeTopLeftTile: {fileID: 0}
+  largeTopRightTile: {fileID: 0}
   isScrap: 1

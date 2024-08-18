@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: OctoSushi
   m_EditorClassIdentifier: 
   foodName: Octo Sushi
+  foodSprite: {fileID: 21300000, guid: 067688ea7aa67a640bdeb296d3ca3f8d, type: 3}
   foodTile: {fileID: 11400000, guid: 48d5c26780d17c14aa547df37e6ef213, type: 2}
   largeBottomLeftTile: {fileID: 11400000, guid: 67926ea4cef332841a6a04ef5dd96abe, type: 2}
   largeBottomRightTile: {fileID: 11400000, guid: b644e349657f84e4489ee104c36c15f2, type: 2}
