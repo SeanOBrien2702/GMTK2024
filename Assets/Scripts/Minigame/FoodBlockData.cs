@@ -1,6 +1,13 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+public enum FoodSize {
+    Large,
+    Normal,
+    Small,
+    None
+}
+
 [CreateAssetMenu(fileName = "Food Block", menuName = "Scriptable Objects/Food Block")]
 public class FoodBlockData : ScriptableObject {
     public string foodName;

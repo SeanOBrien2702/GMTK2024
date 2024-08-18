@@ -21,6 +21,8 @@ public class FoodBlock : MonoBehaviour {
     }
 
     private void Update() {
+        if (board == null || Time.timeScale == 0) return;
+
         board.ClearBlock(this);
 
         lockTime += Time.deltaTime;

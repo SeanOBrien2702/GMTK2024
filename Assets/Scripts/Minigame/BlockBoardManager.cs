@@ -5,7 +5,7 @@ public class BlockBoardManager : MonoBehaviour {
     public Tilemap tilemap { get; private set; }
     public FoodBlock activeBlock { get; private set; }
 
-    private FoodBlockData[] _foodBlocksData;
+    private FoodBlockData[] foodBlocksData;
 
     public Vector3Int spawnPosition;
     public Vector2Int boardSize;
@@ -23,21 +23,23 @@ public class BlockBoardManager : MonoBehaviour {
     private void Start() {
         LoadFoodBlocks();
         SetComponents();
-
-        SpawnBlock();
     }
 
     private void LoadFoodBlocks() {
         object[] loadedFoodBlocks = Resources.LoadAll("FoodBlocks", typeof(FoodBlockData));
-        _foodBlocksData = new FoodBlockData[loadedFoodBlocks.Length];
-        loadedFoodBlocks.CopyTo(_foodBlocksData, 0);
+        foodBlocksData = new FoodBlockData[loadedFoodBlocks.Length];
+        loadedFoodBlocks.CopyTo(foodBlocksData, 0);
 
         upcomingBlocks = new FoodBlockData[upcomingBlockSprites.Length];
         for (int i = 0; i < upcomingBlockSprites.Length; i++) {
-            int randomBlockIndex = Random.Range(0, _foodBlocksData.Length);
-            upcomingBlocks[i] = _foodBlocksData[randomBlockIndex];
-            upcomingBlockSprites[i].sprite = _foodBlocksData[randomBlockIndex].foodSprite;
+            upcomingBlocks[i] = GetRandomFoodData();
+            upcomingBlockSprites[i].sprite = upcomingBlocks[i].foodSprite;
         }
+    }
+
+    public FoodBlockData GetRandomFoodData() {
+        int randomBlockIndex = Random.Range(0, foodBlocksData.Length);
+        return foodBlocksData[randomBlockIndex];
     }
 
     private void SetComponents() {
@@ -51,9 +53,8 @@ public class BlockBoardManager : MonoBehaviour {
             upcomingBlocks[i] = upcomingBlocks[i+1];
             upcomingBlockSprites[i].sprite = upcomingBlocks[i].foodSprite;
         }
-        int randomBlockIndex = Random.Range(0, _foodBlocksData.Length);
-        upcomingBlocks[upcomingBlocks.Length-1] = _foodBlocksData[randomBlockIndex];
-        upcomingBlockSprites[upcomingBlockSprites.Length-1].sprite = _foodBlocksData[randomBlockIndex].foodSprite;
+        upcomingBlocks[upcomingBlocks.Length-1] = GetRandomFoodData();
+        upcomingBlockSprites[upcomingBlockSprites.Length-1].sprite = upcomingBlocks[upcomingBlocks.Length-1].foodSprite;
 
         activeBlock.Initialize(this, spawnPosition, data);
 
@@ -144,5 +145,39 @@ public class BlockBoardManager : MonoBehaviour {
         if (tilemap.GetTile(position) != tile) return false;
 
         return true;
+    }
+
+    public FoodBlockData GetFoodBlockDataByPosition(Vector3 position) {
+        Vector3Int tPos = tilemap.WorldToCell(position);
+
+        if (tPos == activeBlock.position) return null;
+
+        Tile tile = tilemap.GetTile<Tile>(tPos);
+
+        foreach (FoodBlockData data in foodBlocksData) {
+            if (data.foodTile != null & tile == data.foodTile) return data;
+            if (data.largeBottomLeftTile != null &tile == data.largeBottomLeftTile) return data;
+            if (data.largeBottomRightTile != null &tile == data.largeBottomRightTile) return data;
+            if (data.largeTopLeftTile != null &tile == data.largeTopLeftTile) return data;
+            if (data.largeTopRightTile != null &tile == data.largeTopRightTile) return data;
+        }
+
+        return null;
+    }
+
+    public FoodSize GetFoodSizeByPosition(FoodBlockData data, Vector3 position) {
+        Vector3Int tPos = tilemap.WorldToCell(position);
+
+        if (tPos == activeBlock.position) return FoodSize.Normal;
+
+        Tile tile = tilemap.GetTile<Tile>(tPos);
+
+        if (data.foodTile != null & tile == data.foodTile) return FoodSize.Normal;
+        if (data.largeBottomLeftTile != null &tile == data.largeBottomLeftTile) return FoodSize.Large;
+        if (data.largeBottomRightTile != null &tile == data.largeBottomRightTile) return FoodSize.Large;
+        if (data.largeTopLeftTile != null &tile == data.largeTopLeftTile) return FoodSize.Large;
+        if (data.largeTopRightTile != null &tile == data.largeTopRightTile) return FoodSize.Large;
+
+        return FoodSize.Normal;
     }
 }
