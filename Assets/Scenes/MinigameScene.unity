@@ -2299,7 +2299,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8, y: 16}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -2590,6 +2590,7 @@ MonoBehaviour:
   - {fileID: 18174715}
   scrapTilemap: {fileID: 1558577020}
   activeScrapBlock: {fileID: 1531165926}
+  cloudTransformationPrefab: {fileID: 4868071665319262174, guid: 407b8d50689cf7c43bc113a2c5ca743e, type: 3}
 --- !u!114 &1503058484
 MonoBehaviour:
   m_ObjectHideFlags: 0

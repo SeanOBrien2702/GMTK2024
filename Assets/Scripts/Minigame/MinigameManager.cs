@@ -107,12 +107,15 @@ public class MinigameManager : MonoBehaviour {
                             plateSprite.sprite = plateData.foodSprite;
                             switch (plateSize) {
                                 case FoodSize.Small:
+                                    plateSprite.transform.localPosition = new Vector3(0f, -0.175f, 0f);
                                     plateSprite.transform.localScale = new Vector2(0.25f, 0.25f);
                                     break;
                                 case FoodSize.Normal:
+                                    plateSprite.transform.localPosition = new Vector3(0f, -0.125f, 0f);
                                     plateSprite.transform.localScale = new Vector2(0.5f, 0.5f);
                                     break;
                                 case FoodSize.Large:
+                                    plateSprite.transform.localPosition = new Vector3(0f, 0f, 0f);
                                     plateSprite.transform.localScale = new Vector2(1f, 1f);
                                     break;
                             }
@@ -135,6 +138,7 @@ public class MinigameManager : MonoBehaviour {
                                 magicMiniboardOrbSprite.enabled = false;
                                 magicMiniboardFinishedSprite.sprite = magicMiniboardFoodSprite.sprite;
                                 magicMiniboardFinishedSprite.enabled = true;
+                                Instantiate(board.cloudTransformationPrefab, magicMiniboardFinishedSprite.transform.position, Quaternion.identity);
                             }
                         }
                     }

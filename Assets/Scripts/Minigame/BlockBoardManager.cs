@@ -15,6 +15,7 @@ public class BlockBoardManager : MonoBehaviour {
     public SpriteRenderer[] upcomingBlockSprites;
     public Tilemap scrapTilemap;
     public ScrapBlock activeScrapBlock;
+    public GameObject cloudTransformationPrefab;
 
     private FoodBlockData[] upcomingBlocks;
 
@@ -139,6 +140,8 @@ public class BlockBoardManager : MonoBehaviour {
                     tilemap.SetTile(block.position + Vector3Int.down, block.data.largeBottomRightTile);
                     tilemap.SetTile(block.position + Vector3Int.left, block.data.largeTopLeftTile);
                     tilemap.SetTile(block.position + Vector3Int.down + Vector3Int.left, block.data.largeBottomLeftTile);
+
+                    Instantiate(cloudTransformationPrefab, tilemap.CellToWorld(block.position), Quaternion.identity);
                     return;
                 }
             }
@@ -151,6 +154,8 @@ public class BlockBoardManager : MonoBehaviour {
                     tilemap.SetTile(block.position + Vector3Int.down, block.data.largeBottomLeftTile);
                     tilemap.SetTile(block.position + Vector3Int.right, block.data.largeTopRightTile);
                     tilemap.SetTile(block.position + Vector3Int.down + Vector3Int.right, block.data.largeBottomRightTile);
+
+                    Instantiate(cloudTransformationPrefab, tilemap.CellToWorld(block.position) + Vector3.right, Quaternion.identity);
                     return;
                 }
             }
@@ -166,6 +171,8 @@ public class BlockBoardManager : MonoBehaviour {
                     tilemap.SetTile(block.position + Vector3Int.up, block.data.largeTopRightTile);
                     tilemap.SetTile(block.position + Vector3Int.left, block.data.largeBottomLeftTile);
                     tilemap.SetTile(block.position + Vector3Int.up + Vector3Int.left, block.data.largeTopLeftTile);
+
+                    Instantiate(cloudTransformationPrefab, tilemap.CellToWorld(block.position) + Vector3.up, Quaternion.identity);
                     return;
                 }
             }
@@ -178,6 +185,8 @@ public class BlockBoardManager : MonoBehaviour {
                     tilemap.SetTile(block.position + Vector3Int.up, block.data.largeTopLeftTile);
                     tilemap.SetTile(block.position + Vector3Int.right, block.data.largeBottomRightTile);
                     tilemap.SetTile(block.position + Vector3Int.up + Vector3Int.right, block.data.largeTopRightTile);
+
+                    Instantiate(cloudTransformationPrefab, tilemap.CellToWorld(block.position) + Vector3.up + Vector3.right, Quaternion.identity);
                     return;
                 }
             }
