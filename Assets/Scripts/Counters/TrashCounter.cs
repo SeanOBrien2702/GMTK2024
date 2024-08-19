@@ -12,14 +12,8 @@ public class TrashCounter : Counter
 
     public override void Interact(PlayerController player) 
     {
-        Debug.Log("interact");
         if (player.HasKitchenObject()) 
         {
-            Debug.Log("has object");
-            //player.Trash()
-            //Destroy(player.GetKitchenObject());
-            //Dest
-            //Destroy(player.GetKitchenObject());
             OnAnyObjectTrashed?.Invoke(this, EventArgs.Empty);
         }
     }

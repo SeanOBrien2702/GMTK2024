@@ -65,13 +65,11 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
         if (direction != lastDirection) return;
         if(lastDirection.x >= 0)
         {
-            Debug.Log("right");
             carryPosition.localPosition = new Vector3(carryDistance, 0, 0);
             spriteRenderer.flipX = true;
         }
         else
         {
-            Debug.Log("left");
             carryPosition.localPosition = new Vector3(carryDistance * -1, 0, 0);
             spriteRenderer.flipX = false;
         }
@@ -138,7 +136,6 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
     public void SetKitchenObject(KitchenObject newKitchenObject)
     {
         kitchenObject = newKitchenObject;
-        Debug.Log(kitchenObject);
         
         if (kitchenObject != null)
         {
