@@ -6,7 +6,6 @@ using UnityEngine.Tilemaps;
 public class BlockBoardManager : MonoBehaviour {
     public Tilemap tilemap { get; private set; }
     public FoodBlock activeBlock { get; private set; }
-    public ScrapBlock activeScrapBlock { get; private set; }
 
     private FoodBlockData[] foodBlocksData;
     private FoodBlockData[] scrapBlocksData;
@@ -14,7 +13,8 @@ public class BlockBoardManager : MonoBehaviour {
     public Vector3Int spawnPosition;
     public Vector2Int boardSize;
     public SpriteRenderer[] upcomingBlockSprites;
-    public float scrapSpawnInterval;
+    public Tilemap scrapTilemap;
+    public ScrapBlock activeScrapBlock;
 
     private FoodBlockData[] upcomingBlocks;
 
@@ -59,7 +59,6 @@ public class BlockBoardManager : MonoBehaviour {
     private void SetComponents() {
         tilemap = GetComponentInChildren<Tilemap>();
         activeBlock = GetComponentInChildren<FoodBlock>();
-        activeScrapBlock = GetComponentInChildren<ScrapBlock>();
     }
 
     public void SpawnBlock() {
@@ -100,16 +99,20 @@ public class BlockBoardManager : MonoBehaviour {
             SetScrapBlock(activeScrapBlock);
         } else {
             // Game over
-            tilemap.ClearAllTiles();
+            scrapTilemap.ClearAllTiles();
         }
     }
 
     public void SetScrapBlock(ScrapBlock block) {
-        tilemap.SetTile(block.position, block.data.foodTile);
+        scrapTilemap.SetTile(block.position, block.data.foodTile);
     }
 
     public void ClearScrapBlock(ScrapBlock block) {
-        tilemap.SetTile(block.position, null);
+        scrapTilemap.SetTile(block.position, null);
+    }
+
+    public void LockScrapBlock(ScrapBlock block) {
+        tilemap.SetTile(block.position, block.data.foodTile);
     }
 
     public bool IsValidPosition(Vector3Int position) {

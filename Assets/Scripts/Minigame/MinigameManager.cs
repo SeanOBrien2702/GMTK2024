@@ -12,7 +12,6 @@ public class MinigameManager : MonoBehaviour {
     [SerializeField] private SpriteRenderer magicMiniboardFinishedSprite;
 
     private FoodBlockData assignedDishData;
-    private FoodSize assignedDishSize = FoodSize.Normal;
     private FoodBlockData draggingData;
     private FoodSize draggingSize;
     private FoodBlockData plateData;

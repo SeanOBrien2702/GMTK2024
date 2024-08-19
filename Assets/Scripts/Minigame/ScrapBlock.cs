@@ -6,7 +6,7 @@ public class ScrapBlock : MonoBehaviour {
     public Vector3Int position { get; private set; }
 
     public float stepDelay = 1f;
-    public float lockDelay = 0f;
+    public float lockDelay = 0.5f;
 
     private float stepTime;
     private float lockTime;
@@ -40,7 +40,6 @@ public class ScrapBlock : MonoBehaviour {
         newPosition.y += translation.y;
 
         bool isValid = board.IsValidPosition(newPosition);
-
         if (isValid) {
             position = newPosition;
             lockTime = 0f;
@@ -60,7 +59,7 @@ public class ScrapBlock : MonoBehaviour {
     }
 
     private void Lock() {
-        board.SetScrapBlock(this);
+        board.LockScrapBlock(this);
 
         board.SpawnScrap();
     }
