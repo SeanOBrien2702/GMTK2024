@@ -7,9 +7,12 @@ public class ScrapBlock : MonoBehaviour {
 
     public float stepDelay = 1f;
     public float lockDelay = 0.5f;
+    public float spawnInterval = 10f;
 
     private float stepTime;
     private float lockTime;
+
+    private bool isOnCooldown;
 
     public void Initialize(BlockBoardManager board, Vector3Int position, FoodBlockData data) {
         this.board = board;
@@ -18,14 +21,19 @@ public class ScrapBlock : MonoBehaviour {
 
         stepTime = Time.time + stepDelay;
         lockTime = 0f;
+        isOnCooldown = false;
     }
 
     private void Update() {
-        if (board == null || Time.timeScale == 0) return;
+        if (board == null || Time.timeScale == 0 || isOnCooldown) return;
 
         board.ClearScrapBlock(this);
 
         lockTime += Time.deltaTime;
+
+        if (position == board.activeBlock.position) {
+            Move(Vector2Int.up);
+        }
 
         if (Time.time >= stepTime) {
             Step();
@@ -53,14 +61,15 @@ public class ScrapBlock : MonoBehaviour {
 
         Move(Vector2Int.down);
 
-        if (lockTime >= lockDelay) {
+        if (lockTime >= lockDelay && !board.IsValidPosition(position + Vector3Int.down)) {
             Lock();
         }
     }
 
     private void Lock() {
+        isOnCooldown = true;
         board.LockScrapBlock(this);
 
-        board.SpawnScrap();
+        board.SpawnScrapDelay();
     }
 }

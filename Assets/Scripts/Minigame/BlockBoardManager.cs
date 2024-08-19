@@ -88,6 +88,10 @@ public class BlockBoardManager : MonoBehaviour {
         tilemap.SetTile(block.position, null);
     }
 
+    public void SpawnScrapDelay() {
+        Invoke(nameof(SpawnScrap), activeScrapBlock.spawnInterval);
+    }
+
     public void SpawnScrap() {
         FoodBlockData data = GetRandomScrapData();
         Vector3Int scrapSpawnPosition = new Vector3Int(Random.Range(bounds.xMin, bounds.xMax), spawnPosition.y, 0);
@@ -117,7 +121,7 @@ public class BlockBoardManager : MonoBehaviour {
 
     public bool IsValidPosition(Vector3Int position) {
         if (!bounds.Contains((Vector2Int)position)) return false;
-        if (tilemap.HasTile(position)) return false;
+        if (tilemap.HasTile(position) && position != activeBlock.position) return false;
         
         return true;
     }

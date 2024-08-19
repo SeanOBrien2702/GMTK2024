@@ -2754,8 +2754,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5427e824afeaba946a61d57543c3c933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepDelay: 2
+  stepDelay: 1
   lockDelay: 0.5
+  spawnInterval: 10
 --- !u!156049354 &1531165927
 Grid:
   m_ObjectHideFlags: 0
