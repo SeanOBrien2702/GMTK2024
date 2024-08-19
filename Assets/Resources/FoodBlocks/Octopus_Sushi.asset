@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d865483a1e1e54aa1977bcbbc3d20b, type: 3}
+  m_Name: Octopus_Sushi
+  m_EditorClassIdentifier: 
+  foodName: Octopus Sushi
+  foodSprite: {fileID: 21300000, guid: 2755db883649506499a1527274b6666c, type: 3}
+  largeFoodSprite: {fileID: 21300000, guid: 2755db883649506499a1527274b6666c, type: 3}
+  foodTile: {fileID: 11400000, guid: a023477dd1fd5414a9fde5fea8f51544, type: 2}
+  largeBottomLeftTile: {fileID: 11400000, guid: 7bfac9b6a97461a48b8a3263370aab0e, type: 2}
+  largeBottomRightTile: {fileID: 11400000, guid: ee7429bff204a6044bd0ce54b37f2796, type: 2}
+  largeTopLeftTile: {fileID: 11400000, guid: 924942c5c5730ce4fa3b64381e83b25a, type: 2}
+  largeTopRightTile: {fileID: 11400000, guid: f95217fecaff22c47a332553c280dc8e, type: 2}
+  blockType: 1
