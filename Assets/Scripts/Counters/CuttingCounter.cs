@@ -10,6 +10,7 @@ public class CuttingCounter : Counter, IHasProgress
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
     private int cuttingProgress;
     Animator animator;
+    bool isAnimationPlaying = false;
 
     void Start()
     {
@@ -23,6 +24,8 @@ public class CuttingCounter : Counter, IHasProgress
 
     public override void Interact(PlayerController player) 
     {
+        if (isAnimationPlaying) return;
+
         if (!HasKitchenObject()) 
         {
             // There is no KitchenObject here
@@ -108,8 +111,9 @@ public class CuttingCounter : Counter, IHasProgress
             // There is a KitchenObject here AND it can be cut
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
-            if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax) 
+            if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax && !isAnimationPlaying) 
             {
+                isAnimationPlaying = true;
                 animator.SetTrigger("Transition");
                 //KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
                 //Destroy(GetKitchenObject().gameObject);
@@ -123,6 +127,10 @@ public class CuttingCounter : Counter, IHasProgress
         KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
         Destroy(GetKitchenObject().gameObject);
         SetKitchenObject(Instantiate(outputKitchenObjectSO.KitchenObject));
+    }
+    public void AnimationOver()
+    {
+        isAnimationPlaying = false;
     }
 
     private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO) 

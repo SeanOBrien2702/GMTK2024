@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
     [SerializeField] float runSpeed = 0.5f;
     [SerializeField] LayerMask counterMask;
     [SerializeField] Transform carryPosition;
+    [SerializeField] float carryDistance = 2.5f;
 
     void Start()
     {
@@ -61,12 +62,17 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
 
     void LookAtDirection()
     {
+        if (direction != lastDirection) return;
         if(lastDirection.x >= 0)
         {
+            Debug.Log("right");
+            carryPosition.localPosition = new Vector3(carryDistance, 0, 0);
             spriteRenderer.flipX = true;
         }
         else
         {
+            Debug.Log("left");
+            carryPosition.localPosition = new Vector3(carryDistance * -1, 0, 0);
             spriteRenderer.flipX = false;
         }
     }

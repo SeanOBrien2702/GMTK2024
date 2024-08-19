@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc21a10037aee741b16be775dd5891f, type: 3}
   m_Name: SeaweedBurned
   m_EditorClassIdentifier: 
-  KitchenObject: {fileID: 7651304545939822351, guid: f4c5ea2a4a44e15419c11c944543def5, type: 3}
+  KitchenObject: {fileID: 7651304545939822351, guid: 4704b32af6e54934a8459bb59b3fd413, type: 3}
   Sprite: {fileID: 21300000, guid: 5d0ff160fdbb7ae4e8f791419e097b9b, type: 3}
   ObjectName: 

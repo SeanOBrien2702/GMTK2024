@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SeaweedBurningRecipe
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 6f7ec4503e171fc44a6ff23a349b8cc1, type: 2}
-  output: {fileID: 11400000, guid: 0bdd9b5545cf48444b4910e6bf495888, type: 2}
+  output: {fileID: 11400000, guid: 07db0759e4d809347b7102a2dfcc04f9, type: 2}
   burningTimerMax: 3
