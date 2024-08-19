@@ -1,9 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class BlockBoardManager : MonoBehaviour {
     public Tilemap tilemap { get; private set; }
     public FoodBlock activeBlock { get; private set; }
+    public ScrapBlock activeScrapBlock { get; private set; }
 
     private FoodBlockData[] foodBlocksData;
     private FoodBlockData[] scrapBlocksData;
@@ -11,6 +14,7 @@ public class BlockBoardManager : MonoBehaviour {
     public Vector3Int spawnPosition;
     public Vector2Int boardSize;
     public SpriteRenderer[] upcomingBlockSprites;
+    public float scrapSpawnInterval;
 
     private FoodBlockData[] upcomingBlocks;
 
@@ -47,9 +51,15 @@ public class BlockBoardManager : MonoBehaviour {
         return foodBlocksData[randomBlockIndex];
     }
 
+    public FoodBlockData GetRandomScrapData() {
+        int randomBlockIndex = Random.Range(0, scrapBlocksData.Length);
+        return scrapBlocksData[randomBlockIndex];
+    }
+
     private void SetComponents() {
         tilemap = GetComponentInChildren<Tilemap>();
         activeBlock = GetComponentInChildren<FoodBlock>();
+        activeScrapBlock = GetComponentInChildren<ScrapBlock>();
     }
 
     public void SpawnBlock() {
@@ -76,6 +86,29 @@ public class BlockBoardManager : MonoBehaviour {
     }
 
     public void ClearBlock(FoodBlock block) {
+        tilemap.SetTile(block.position, null);
+    }
+
+    public void SpawnScrap() {
+        FoodBlockData data = GetRandomScrapData();
+        Vector3Int scrapSpawnPosition = new Vector3Int(Random.Range(bounds.xMin, bounds.xMax), spawnPosition.y, 0);
+
+        //while (scrapSpawnPosition == activeBlock.position) yield return null;
+        activeScrapBlock.Initialize(this, scrapSpawnPosition, data);
+
+        if (IsValidPosition(activeScrapBlock.position)) {
+            SetScrapBlock(activeScrapBlock);
+        } else {
+            // Game over
+            tilemap.ClearAllTiles();
+        }
+    }
+
+    public void SetScrapBlock(ScrapBlock block) {
+        tilemap.SetTile(block.position, block.data.foodTile);
+    }
+
+    public void ClearScrapBlock(ScrapBlock block) {
         tilemap.SetTile(block.position, null);
     }
 

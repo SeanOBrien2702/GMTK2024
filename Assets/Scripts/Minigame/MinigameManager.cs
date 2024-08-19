@@ -162,6 +162,7 @@ public class MinigameManager : MonoBehaviour {
                 break;
         }
         board.SpawnBlock();
+        board.SpawnScrap();
     }
 
     public void AcceptPlate() {
