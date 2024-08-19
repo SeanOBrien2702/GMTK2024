@@ -137,7 +137,7 @@ public class StoveCounter : Counter, IHasProgress
                 fryingRecipeSO = HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO());
                 if (fryingRecipeSO != null)
                 {
-                    Debug.Log("food placed");
+                    //bug.Log("food placed");
                     // Player carrying something that can be Fried
                     KitchenObject kitchenObject = player.GetKitchenObject();
                     kitchenObject.SetKitchenObjectParent(this);

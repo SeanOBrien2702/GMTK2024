@@ -6,27 +6,65 @@ using UnityEngine.U2D.Animation;
 
 public class CustomerController : MonoBehaviour
 {
-    //[SerializeField] SpriteLibraryAsset asset;
-    SpriteLibrary library;
+    RecipeSO recipe;
+    [SerializeField] SpriteLibrary library;
     SpriteRenderer spriteRenderer;
-    [SerializeField ]bool isWalking = false;
+    bool isWalking = true;
     bool isFirstFrame;
-    // Start is called before the first frame update
+
+    List<Transform> path;
+    List<Transform> exitPath;
+    Vector3 destination;
+    Vector3 newPos;
+    int index = 0;
+    float speed = 3;
+
+    public RecipeSO Recipe { get => recipe; set => recipe = value; }
+    public List<Transform> Path { get => path; set => path = value; }
+    public SpriteLibrary Library { get => library; set => library = value; }
+    public List<Transform> ExitPath { get => exitPath; set => exitPath = value; }
+
     void Start()
     {
-        library = GetComponent<SpriteLibrary>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(CustomerAnimation());
+        StartCoroutine(WalkPath(path));
+        DeliveryController.Instance.OnRecipeCompleted += Instance_OnRecipeCompleted;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        DeliveryController.Instance.OnRecipeCompleted -= Instance_OnRecipeCompleted;
     }
 
+    private void Instance_OnRecipeCompleted(object sender, DeliveryController.OnRecipeCompletedEventArgs e)
+    {
+        Debug.Log(e.RecipeSO  + "  "+ recipe);
+        if(e.RecipeSO == recipe)
+            StartCoroutine(WalkPath(exitPath));
+    }
 
-    // every 2 seconds perform the print()
+    private IEnumerator WalkPath(List<Transform> currentPath)
+    {
+        index = 0;
+        isWalking = true;
+        while (index < currentPath.Count)
+        {
+            destination = currentPath[index].position;
+            transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, destination) <= 0.05f)
+            {
+                index++;               
+            }
+            yield return null;
+        }
+        isWalking = false;
+        if (currentPath == exitPath)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private IEnumerator CustomerAnimation()
     {
         while (true)
@@ -34,9 +72,7 @@ public class CustomerController : MonoBehaviour
             spriteRenderer.sprite = library.GetSprite(GetCategory(), GetLabel());
             isFirstFrame = !isFirstFrame;
 
-
-            yield return new WaitForSeconds(0.5f);
-            print("WaitAndPrint " + Time.time);
+            yield return new WaitForSeconds(0.3f);
         }
     }
 
@@ -47,6 +83,6 @@ public class CustomerController : MonoBehaviour
 
     private string GetCategory()
     {
-        return !isWalking ? "Idle" : "Walking";
+        return isWalking ? "Walking" : "Idle";
     }
 }

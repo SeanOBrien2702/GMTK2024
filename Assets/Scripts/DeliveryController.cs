@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class DeliveryController : MonoBehaviour
 {
-    public event EventHandler OnRecipeSpawned;
-    public event EventHandler OnRecipeCompleted;
+    public event EventHandler<OnRecipeSpawnedEventArgs> OnRecipeSpawned;
+    public event EventHandler<OnRecipeCompletedEventArgs> OnRecipeCompleted;
     public event EventHandler OnRecipeSuccess;
     public event EventHandler OnRecipeFailed;
+
+    public class OnRecipeSpawnedEventArgs : EventArgs
+    {
+        public RecipeSO RecipeSO;
+    }
+
+    public class OnRecipeCompletedEventArgs : EventArgs
+    {
+        public RecipeSO RecipeSO;
+    }
 
     public static DeliveryController Instance { get; private set; }
 
@@ -34,7 +44,7 @@ public class DeliveryController : MonoBehaviour
 
             if (!MiniGameManager.Instance.IsPlayingMinigame && waitingRecipeSOList.Count < waitingRecipesMax)
             {
-                Debug.Log(waitingRecipeSOList.Count + " " + waitingRecipesMax);
+                //Debug.Log(waitingRecipeSOList.Count + " " + waitingRecipesMax);
                 int waitingRecipeSOIndex = UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count);
 
                 SpawnNewWaitingRecipe(waitingRecipeSOIndex);
@@ -48,7 +58,10 @@ public class DeliveryController : MonoBehaviour
 
         waitingRecipeSOList.Add(waitingRecipeSO);
 
-        OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
+        OnRecipeSpawned?.Invoke(this, new OnRecipeSpawnedEventArgs
+        {
+            RecipeSO = waitingRecipeSO
+        });
     }
 
     public void DeliverRecipe(PlateKitchenObject plateKitchenObject)
@@ -97,11 +110,15 @@ public class DeliveryController : MonoBehaviour
 
     private void DeliverCorrectRecipe(int waitingRecipeSOListIndex)
     {
+        RecipeSO waitingRecipeSO = waitingRecipeSOList[waitingRecipeSOListIndex];
+
+        OnRecipeCompleted?.Invoke(this, new OnRecipeCompletedEventArgs
+        {
+            RecipeSO = waitingRecipeSO
+        });
+
         successfulRecipesAmount++;
-
-        waitingRecipeSOList.RemoveAt(waitingRecipeSOListIndex);
-
-        OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+        waitingRecipeSOList.RemoveAt(waitingRecipeSOListIndex); 
         OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
     }
 
