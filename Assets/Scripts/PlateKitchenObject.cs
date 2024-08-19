@@ -2,8 +2,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum PlateScale
+{
+    Small,
+    Medium,
+    Large
+}
+
 public class PlateKitchenObject : KitchenObject 
 {
+    PlateScale scale = PlateScale.Medium;
     public event EventHandler<OnIngredientAddedEventArgs> OnIngredientAdded;
     public class OnIngredientAddedEventArgs : EventArgs
     {
@@ -12,6 +20,8 @@ public class PlateKitchenObject : KitchenObject
 
     [SerializeField] private List<KitchenObjectSO> validKitchenObjectSOList;
     private List<KitchenObjectSO> kitchenObjectSOList;
+
+    internal PlateScale Scale { get => scale; set => scale = value; }
 
     protected override void Awake() 
     {
