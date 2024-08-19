@@ -91,7 +91,7 @@ public class FoodBlock : MonoBehaviour {
 
     private void Lock() {
         board.SetBlock(this);
-        if (!data.isScrap) {
+        if (data.blockType == BlockType.Food || data.blockType == BlockType.Orb) {
             board.EnlargeBlocks(this);
         }
 

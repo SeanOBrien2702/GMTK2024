@@ -6,6 +6,7 @@ public class BlockBoardManager : MonoBehaviour {
     public FoodBlock activeBlock { get; private set; }
 
     private FoodBlockData[] foodBlocksData;
+    private FoodBlockData[] scrapBlocksData;
 
     public Vector3Int spawnPosition;
     public Vector2Int boardSize;
@@ -29,6 +30,10 @@ public class BlockBoardManager : MonoBehaviour {
         object[] loadedFoodBlocks = Resources.LoadAll("FoodBlocks", typeof(FoodBlockData));
         foodBlocksData = new FoodBlockData[loadedFoodBlocks.Length];
         loadedFoodBlocks.CopyTo(foodBlocksData, 0);
+
+        object[] loadedScrapBlocks = Resources.LoadAll("ScrapBlocks", typeof(FoodBlockData));
+        scrapBlocksData = new FoodBlockData[loadedScrapBlocks.Length];
+        loadedScrapBlocks.CopyTo(scrapBlocksData, 0);
 
         upcomingBlocks = new FoodBlockData[upcomingBlockSprites.Length];
         for (int i = 0; i < upcomingBlockSprites.Length; i++) {
