@@ -21,29 +21,34 @@ public class GhostBlock : MonoBehaviour {
         if (MinigameManager.Instance.isPaused) return;
 
         ClearBlock();
-        DropBlock();
-        SetBlock();
+        if (DropBlock()) {
+            SetBlock();
+        }
     }
 
     private void ClearBlock() {
         tilemap.SetTile(position, null);
     }
 
-    private void DropBlock() {
+    private bool DropBlock() {
         Vector3Int position = trackingBlock.position;
 
         int current = position.y - 1;
         int bottom = -board.boardSize.y / 2 - 1;
+        bool doDrop = false;
 
         for (int row = current; row >= bottom; row--) {
             position.y = row;
 
             if (board.IsValidPosition(position)) {
                 this.position = position;
+                doDrop = true;
             } else {
                 break;
             }
         }
+
+        return doDrop;
     }
 
     private void SetBlock() {

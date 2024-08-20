@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class MinigameManager : MonoBehaviour {
     [SerializeField] private BlockBoardManager board;
@@ -13,6 +14,10 @@ public class MinigameManager : MonoBehaviour {
     [SerializeField] private SpriteRenderer magicMiniboardFoodSprite;
     [SerializeField] private SpriteRenderer magicMiniboardOrbSprite;
     [SerializeField] private SpriteRenderer magicMiniboardFinishedSprite;
+    [SerializeField] private Image timerImage;
+    [SerializeField] private float timer;
+
+    private float currentTimer = 0;
 
     private FoodBlockData assignedDishData;
     private FoodBlockData draggingData;
@@ -22,7 +27,7 @@ public class MinigameManager : MonoBehaviour {
 
     private FoodBlockData inputFood;
 
-    public bool isPaused;
+    [HideInInspector] public bool isPaused;
 
     public static MinigameManager Instance;
 
@@ -51,6 +56,7 @@ public class MinigameManager : MonoBehaviour {
         if (isPaused) return;
 
         DragAndDropFood();
+        Timer();
     }
 
     private void DragAndDropFood() {
@@ -170,6 +176,15 @@ public class MinigameManager : MonoBehaviour {
             if (draggingSprite.enabled == true) {
                 draggingSprite.enabled = false;
             }
+        }
+    }
+
+    private void Timer() {
+        currentTimer += Time.deltaTime;
+        timerImage.fillAmount = (currentTimer / timer);
+
+        if (currentTimer >= timer) {
+            EndMinigame();
         }
     }
 
