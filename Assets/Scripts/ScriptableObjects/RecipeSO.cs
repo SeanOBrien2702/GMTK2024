@@ -6,4 +6,5 @@ public class RecipeSO : ScriptableObject
 {
     public List<KitchenObjectSO> KitchenObjectSOList;
     public Sprite RecipeImage;
+    public FoodBlockData FoodBlockData;
 }

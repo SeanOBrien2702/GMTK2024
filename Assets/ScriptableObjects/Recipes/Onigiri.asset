@@ -16,3 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 96cd60e2ca055694e955e3ea4ffb4c07, type: 2}
   - {fileID: 11400000, guid: 6f7ec4503e171fc44a6ff23a349b8cc1, type: 2}
   RecipeImage: {fileID: 21300000, guid: 1ab2b934697128c48bb033ec2caedb0b, type: 3}
+  FoodBlockData: {fileID: 11400000, guid: 283ed30471814ac4e88ce67586d8902f, type: 2}

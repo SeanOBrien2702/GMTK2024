@@ -15,3 +15,4 @@ MonoBehaviour:
   KitchenObjectSOList:
   - {fileID: 11400000, guid: 50dcdb2f2bb1d3549b1dea8b6a991be0, type: 2}
   RecipeImage: {fileID: 21300000, guid: 358571f060f1d134cba264a8b418d8d3, type: 3}
+  FoodBlockData: {fileID: 11400000, guid: 41df463f84fb54341a8291122131a0c1, type: 2}

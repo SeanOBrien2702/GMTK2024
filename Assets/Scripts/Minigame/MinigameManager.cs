@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class MinigameManager : MonoBehaviour {
@@ -17,17 +18,21 @@ public class MinigameManager : MonoBehaviour {
     private FoodBlockData plateData;
     private FoodSize plateSize;
 
+    private FoodBlockData inputFood;
+
     private void Start() {
-        Invoke(nameof(StartGame), 1f);
+        RecipeSO recipe = GameManager.Instance.GetScaledPlateRecipeSO();
+        if (recipe == null) EndMinigame();
+
+        inputFood = recipe.FoodBlockData;
+        if (inputFood == null) EndMinigame();
+
+        Invoke(nameof(StartGame), 0.1f);
     }
 
     private void StartGame() {
-        // TODO: Assign the dish through the main game
-        FoodBlockData data = board.GetRandomFoodData();
-        while (data.blockType != BlockType.Food) {
-            data = board.GetRandomFoodData();
-        }
-        AssignDish(data);
+        board.ChangeDifficulty(GameManager.Instance.Level);
+        AssignDish(inputFood);
     }
 
     private void Update() {
@@ -169,13 +174,29 @@ public class MinigameManager : MonoBehaviour {
     }
 
     public void AcceptPlate() {
-        // TODO: Tell the main game what dish has been made
-        Debug.Log($"{plateSize} {plateData.foodName} has been made!");
+        switch (plateSize) {
+            case FoodSize.Small:
+                GameManager.Instance.PlateKitchenObject.Scale = PlateScale.Small;
+                break;
+            case FoodSize.Normal:
+                GameManager.Instance.PlateKitchenObject.Scale = PlateScale.Medium;
+                break;
+            case FoodSize.Large:
+                GameManager.Instance.PlateKitchenObject.Scale = PlateScale.Large;
+                break;
+        }
+
+        EndMinigame();
     }
 
     public void DeclinePlate() {
         plateSprite.enabled = false;
         promptPlateCanvas.gameObject.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    private void EndMinigame() {
+        GameManager.Instance.ToggleMinigameStart(false);
+        SceneManager.UnloadSceneAsync("MinigameScene");
     }
 }

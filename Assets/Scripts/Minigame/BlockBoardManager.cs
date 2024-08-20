@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class BlockBoardManager : MonoBehaviour {
@@ -104,7 +105,9 @@ public class BlockBoardManager : MonoBehaviour {
             SetScrapBlock(activeScrapBlock);
         } else {
             // Game over
-            scrapTilemap.ClearAllTiles();
+            GameManager.Instance.PlateKitchenObject.Scale = PlateScale.Medium;
+            GameManager.Instance.ToggleMinigameStart(false);
+            SceneManager.UnloadSceneAsync("TestMiniGameScene");
         }
     }
 
@@ -233,5 +236,10 @@ public class BlockBoardManager : MonoBehaviour {
         if (data.largeTopRightTile != null &tile == data.largeTopRightTile) return FoodSize.Large;
 
         return FoodSize.Normal;
+    }
+
+    public void ChangeDifficulty(int level) {
+        activeBlock.IncreaseDifficulty(level);
+        activeScrapBlock.IncreaseDifficulty(level);
     }
 }

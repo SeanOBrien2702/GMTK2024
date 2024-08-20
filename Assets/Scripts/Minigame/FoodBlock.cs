@@ -6,6 +6,7 @@ public class FoodBlock : MonoBehaviour {
     public Vector3Int position { get; private set; }
 
     public float stepDelay = 1f;
+    public float stepDelayDecrease = 0.1f;
     public float lockDelay = 0.5f;
 
     private float stepTime;
@@ -18,6 +19,10 @@ public class FoodBlock : MonoBehaviour {
 
         stepTime = Time.time + stepDelay;
         lockTime = 0f;
+    }
+
+    public void IncreaseDifficulty(int level) {
+        stepDelay -= Mathf.Max(level * stepDelayDecrease, 0f);
     }
 
     private void Update() {

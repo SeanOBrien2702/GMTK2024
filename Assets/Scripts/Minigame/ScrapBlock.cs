@@ -6,8 +6,10 @@ public class ScrapBlock : MonoBehaviour {
     public Vector3Int position { get; private set; }
 
     public float stepDelay = 1f;
+    public float stepDelayDecrease = 0.2f;
     public float lockDelay = 0.5f;
     public float spawnInterval = 10f;
+    public float spawnIntervalDecrease = 1.5f;
 
     private float stepTime;
     private float lockTime;
@@ -22,6 +24,11 @@ public class ScrapBlock : MonoBehaviour {
         stepTime = Time.time + stepDelay;
         lockTime = 0f;
         isOnCooldown = false;
+    }
+
+    public void IncreaseDifficulty(int level) {
+        stepDelay -= Mathf.Max(level * stepDelayDecrease, 0f);
+        spawnInterval -= Mathf.Max(level * spawnIntervalDecrease, 0f);
     }
 
     private void Update() {
