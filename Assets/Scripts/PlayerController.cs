@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
     [SerializeField] Transform carryPosition;
     [SerializeField] float carryDistance = 2.5f;
 
+    float footstepTimer;
+    float footstepCooldown = 0.3f;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -55,6 +58,12 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
         if (direction.magnitude > 0)
         {
             animator.SetBool("IsWalking", true);
+            footstepTimer += Time.deltaTime;
+            if (footstepTimer > footstepCooldown)
+            {
+                footstepTimer = 0;
+                SFXController.Instance.PlayFootstepsSound();              
+            }
         }
         else
         {
