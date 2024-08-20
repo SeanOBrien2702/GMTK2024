@@ -12,7 +12,13 @@ public class ScalerCounter : Counter
             {
                 GameManager.Instance.IsGamePaused = true;
                 GameManager.Instance.PlateKitchenObject = plateKitchenObject;
-                SceneManager.LoadScene("TestMiniGameScene", LoadSceneMode.Additive);
+                if (GameManager.Instance.GetScaledPlateRecipeSO() != null) {
+                    GameManager.Instance.ToggleMinigameStart(true);
+                    GameManager.Instance.PlateKitchenObject = plateKitchenObject;
+                    SceneManager.LoadScene("MinigameScene", LoadSceneMode.Additive);
+                } else {
+                    GameManager.Instance.PlateKitchenObject = null;
+                }
             }
         }
     }

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum PlateScale
+public enum PlateScale
 {
     Small,
     Medium,

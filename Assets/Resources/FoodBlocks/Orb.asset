@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d865483a1e1e54aa1977bcbbc3d20b, type: 3}
+  m_Name: Orb
+  m_EditorClassIdentifier: 
+  foodName: Orb
+  foodSprite: {fileID: 21300000, guid: 1ef5f61d987db784fa1e57d7e551a92d, type: 3}
+  largeFoodSprite: {fileID: 21300000, guid: 155b3d9ef920ef24aa4e3045cc298ab0, type: 3}
+  foodTile: {fileID: 11400000, guid: 43801708e848b8741a17ceff4cf989f9, type: 2}
+  largeBottomLeftTile: {fileID: 11400000, guid: 7bd29452eb58c544d993a84b557ee864, type: 2}
+  largeBottomRightTile: {fileID: 11400000, guid: ecaea8bd5c7868349b4fbf787d994838, type: 2}
+  largeTopLeftTile: {fileID: 11400000, guid: 8b9cd9a6157e30546bf662bf97578b95, type: 2}
+  largeTopRightTile: {fileID: 11400000, guid: b82226f33d384aa40a8f6397cd9e8fc5, type: 2}
+  blockType: 3
