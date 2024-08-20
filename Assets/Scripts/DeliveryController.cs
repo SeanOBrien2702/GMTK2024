@@ -131,4 +131,38 @@ public class DeliveryController : MonoBehaviour
     {
         return successfulRecipesAmount;
     }
+
+    public PlateScale GetNeededPlateScale(PlateKitchenObject plateKitchenObject) {
+        for (int i = 0; i < waitingRecipeSOList.Count; i++) {
+            RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
+
+            if (waitingRecipeSO.KitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count) {
+                // Has the same number of ingredients
+                bool plateContentsMatchesRecipe = true;
+                foreach (KitchenObjectSO recipeKitchenObjectSO in waitingRecipeSO.KitchenObjectSOList) {
+                    // Cycling through all ingredients in the Recipe
+                    bool ingredientFound = false;
+                    foreach (KitchenObjectSO plateKitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList()) {
+                        // Cycling through all ingredients in the Plate
+                        if (plateKitchenObjectSO == recipeKitchenObjectSO) {
+                            // Ingredient matches!
+                            ingredientFound = true;
+                            break;
+                        }
+                    }
+                    if (!ingredientFound) {
+                        // This Recipe ingredient was not found on the Plate
+                        plateContentsMatchesRecipe = false;
+                    }
+                }
+
+                if (plateContentsMatchesRecipe) {
+                    // Found the needed recipe
+                    return PlateScale.Large;  // TODO: Change this to match the needed PlateScale.
+                }
+            }
+        }
+        // No matches found!
+        return PlateScale.Medium;
+    }
 }

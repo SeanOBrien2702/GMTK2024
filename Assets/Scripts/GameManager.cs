@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] disabledDuringMinigame;
-    [SerializeField] private RecipeSO[] recipes;
+    [SerializeField] private RecipeListSO recipeList;
 
     public static GameManager Instance;
     PlateKitchenObject scaledPlate;
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     // Hacky way of getting the current recipe
     public RecipeSO GetScaledPlateRecipeSO() {
         var kitchenObjectSOList = scaledPlate.GetKitchenObjectSOList();
+        var recipes = recipeList.recipeSOList;
 
         foreach (RecipeSO recipe in recipes) {
             int correctObjects = 0;

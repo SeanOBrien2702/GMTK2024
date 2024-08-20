@@ -5,6 +5,8 @@ using UnityEngine.Tilemaps;
 public class MinigameManager : MonoBehaviour {
     [SerializeField] private BlockBoardManager board;
     [SerializeField] private SpriteRenderer assignedDishSprite;
+    [SerializeField] private SpriteRenderer assignedDishContainerSprite;
+    [SerializeField] private Sprite assignedDishContainerLarge;
     [SerializeField] private SpriteRenderer plateSprite;
     [SerializeField] private SpriteRenderer draggingSprite;
     [SerializeField] private Canvas promptPlateCanvas;
@@ -158,6 +160,9 @@ public class MinigameManager : MonoBehaviour {
     public void AssignDish(FoodBlockData data) {
         assignedDishData = data;
         assignedDishSprite.sprite = data.foodSprite;
+        if (DeliveryController.Instance.GetNeededPlateScale(GameManager.Instance.PlateKitchenObject) == PlateScale.Large) {
+            assignedDishContainerSprite.sprite = assignedDishContainerLarge;
+        }
         switch (draggingSize) {
             case FoodSize.Small:
                 assignedDishSprite.transform.localScale = new Vector2(0.25f, 0.25f);
