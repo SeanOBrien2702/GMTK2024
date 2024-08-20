@@ -26,7 +26,7 @@ public class FoodBlock : MonoBehaviour {
     }
 
     private void Update() {
-        if (board == null || Time.timeScale == 0) return;
+        if (board == null || MinigameManager.Instance.isPaused) return;
 
         board.ClearBlock(this);
 

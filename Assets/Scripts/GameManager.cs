@@ -59,23 +59,30 @@ public class GameManager : MonoBehaviour
         var recipes = recipeList.recipeSOList;
 
         foreach (RecipeSO recipe in recipes) {
-            int correctObjects = 0;
+            if (kitchenObjectSOList.Count != recipe.KitchenObjectSOList.Count) continue;
+
+            bool isCorrectRecipe = true;
+
             foreach (KitchenObjectSO kitchenObjectSO in kitchenObjectSOList) {
-                if (recipe.KitchenObjectSOList.Contains(kitchenObjectSO)) correctObjects++;
-                else break;
+                if (!recipe.KitchenObjectSOList.Contains(kitchenObjectSO)) {
+                    isCorrectRecipe = false;
+                    break;
+                }
             }
-            if (correctObjects == recipe.KitchenObjectSOList.Count) return recipe;
+
+            if (isCorrectRecipe) return recipe;
         }
 
         return null;
     }
 
     public void ToggleMinigameStart(bool isEnabled) {
-        isPlayingMinigame = isEnabled;
+        isGamePaused = isEnabled;
 
         foreach (GameObject go in disabledDuringMinigame) {
             go.SetActive(!isEnabled);
         }
+    }
 
     // Update is called once per frame
     void Update()

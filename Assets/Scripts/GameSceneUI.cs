@@ -41,6 +41,7 @@ public class GameSceneUI : MonoBehaviour
     {
         pauseScreen.SetActive(!pauseScreen.activeSelf);
         GameManager.Instance.IsGamePaused = pauseScreen.activeSelf;
+        if (MinigameManager.Instance != null) MinigameManager.Instance.isPaused = pauseScreen.activeSelf;
     }
 
     public void ResumeButton()

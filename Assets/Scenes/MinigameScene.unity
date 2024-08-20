@@ -1401,6 +1401,7 @@ MonoBehaviour:
   magicMiniboardFoodSprite: {fileID: 1639214162}
   magicMiniboardOrbSprite: {fileID: 1627746827}
   magicMiniboardFinishedSprite: {fileID: 481266746}
+  isPaused: 0
 --- !u!1 &946457603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,7 +2759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepDelay: 1
-  stepDelayDecrease: 0.2
+  stepDelayDecrease: 0.1
   lockDelay: 0.5
   spawnInterval: 10
   spawnIntervalDecrease: 1.5

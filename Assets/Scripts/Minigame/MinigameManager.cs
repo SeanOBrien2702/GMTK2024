@@ -22,7 +22,17 @@ public class MinigameManager : MonoBehaviour {
 
     private FoodBlockData inputFood;
 
+    public bool isPaused;
+
+    public static MinigameManager Instance;
+
     private void Start() {
+        if (Instance != null && Instance != this) {
+            Destroy(this);
+        } else {
+            Instance = this;
+        }
+
         RecipeSO recipe = GameManager.Instance.GetScaledPlateRecipeSO();
         if (recipe == null) EndMinigame();
 
@@ -38,6 +48,8 @@ public class MinigameManager : MonoBehaviour {
     }
 
     private void Update() {
+        if (isPaused) return;
+
         DragAndDropFood();
     }
 
@@ -154,6 +166,10 @@ public class MinigameManager : MonoBehaviour {
 
             draggingData = null;
             draggingSprite.enabled = false;
+        } else {
+            if (draggingSprite.enabled == true) {
+                draggingSprite.enabled = false;
+            }
         }
     }
 

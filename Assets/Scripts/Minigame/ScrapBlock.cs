@@ -32,7 +32,7 @@ public class ScrapBlock : MonoBehaviour {
     }
 
     private void Update() {
-        if (board == null || Time.timeScale == 0 || isOnCooldown) return;
+        if (board == null || MinigameManager.Instance.isPaused || isOnCooldown) return;
 
         board.ClearScrapBlock(this);
 

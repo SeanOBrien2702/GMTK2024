@@ -18,6 +18,8 @@ public class GhostBlock : MonoBehaviour {
     }
 
     private void LateUpdate() {
+        if (MinigameManager.Instance.isPaused) return;
+
         ClearBlock();
         DropBlock();
         SetBlock();

@@ -3186,6 +3186,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e2aef6238b638459f562388f635c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disabledDuringMinigame:
+  - {fileID: 963194225}
+  - {fileID: 1170680064}
+  - {fileID: 827209330}
+  - {fileID: 19854234}
+  - {fileID: 1764999517}
+  recipeList: {fileID: 11400000, guid: bb9b427f59646cd42a34c0b629c55103, type: 2}
 --- !u!4 &753125030
 Transform:
   m_ObjectHideFlags: 0
