@@ -95,7 +95,7 @@ public class StoveCounter : Counter, IHasProgress
     private void Update()
     {
         if (!HasKitchenObject()) return;
-        
+        if (GameManager.Instance.IsGamePaused) return;
         switch (state)
         {
             case State.Idle:

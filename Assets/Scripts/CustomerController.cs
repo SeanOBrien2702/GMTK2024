@@ -48,13 +48,20 @@ public class CustomerController : MonoBehaviour
     {
         index = 0;
         isWalking = true;
+        destination = currentPath[index].position;
         while (index < currentPath.Count)
         {
-            destination = currentPath[index].position;
-            transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, destination) <= 0.05f)
+
+            if (!GameManager.Instance.IsGamePaused)
             {
-                index++;               
+                destination = currentPath[index].position;
+                transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, destination) <= 0.05f)
+                {
+                    
+                    index++;
+                }
+                
             }
             yield return null;
         }

@@ -6,10 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     PlateKitchenObject scaledPlate;
-    bool isPlayingMinigame = false;
+    bool isGamePaused = false;
     int level = 0;
 
-    public bool IsPlayingMinigame { get => isPlayingMinigame; set => isPlayingMinigame = value; }
+
+
+    public bool IsGamePaused { get => isGamePaused; set => isGamePaused = value; }
     public PlateKitchenObject PlateKitchenObject { get => scaledPlate; set => scaledPlate = value; }
     public int Level { get => level; set => level = value; }
 

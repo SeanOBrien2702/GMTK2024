@@ -23,6 +23,7 @@ public class GameSceneUI : MonoBehaviour
     void TogglePauseScreen()
     {
         pauseScreen.SetActive(!pauseScreen.activeSelf);
+        GameManager.Instance.IsGamePaused = pauseScreen.activeSelf;
     }
 
     public void ResumeButton()
