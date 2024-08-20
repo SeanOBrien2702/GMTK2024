@@ -8,6 +8,6 @@ public class TestUI : MonoBehaviour
     public void UnloadScene()
     {
         SceneManager.UnloadScene("TestMiniGameScene");
-        GameManager.Instance.IsPlayingMinigame = false;
+        GameManager.Instance.IsGamePaused = false;
     }
 }

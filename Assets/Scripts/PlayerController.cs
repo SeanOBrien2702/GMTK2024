@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour, IKitchenObjectParent
 
     void Update()
     {
-        if (GameManager.Instance.IsPlayingMinigame) return;
+        if (GameManager.Instance.IsGamePaused) return;
 
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");

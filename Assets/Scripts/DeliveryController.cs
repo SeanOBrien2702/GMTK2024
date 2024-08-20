@@ -42,7 +42,7 @@ public class DeliveryController : MonoBehaviour
         {
             spawnRecipeTimer = spawnRecipeTimerMax;
 
-            if (!GameManager.Instance.IsPlayingMinigame && waitingRecipeSOList.Count < waitingRecipesMax)
+            if (!GameManager.Instance.IsGamePaused && waitingRecipeSOList.Count < waitingRecipesMax)
             {
                 //Debug.Log(waitingRecipeSOList.Count + " " + waitingRecipesMax);
                 int waitingRecipeSOIndex = UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count);

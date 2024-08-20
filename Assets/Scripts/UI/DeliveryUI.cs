@@ -4,12 +4,13 @@ public class DeliveryUI : MonoBehaviour
 {
     [SerializeField] private Transform container;
     [SerializeField] private RecipeUI recipeUI;
+    RectTransform rectTransform;
 
     private void Start()
     {
         DeliveryController.Instance.OnRecipeSpawned += DeliveryManager_OnRecipeSpawned;
         DeliveryController.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
-
+        rectTransform = GetComponent<RectTransform>();  
         UpdateVisual();
     }
 
@@ -36,5 +37,6 @@ public class DeliveryUI : MonoBehaviour
             recipeTransform.gameObject.SetActive(true);
             recipeTransform.SetRecipeSO(recipeSO);
         }
+        rectTransform.sizeDelta = new Vector2(20 + 130 * DeliveryController.Instance.GetWaitingRecipeSOList().Count, 140);
     }
 }
