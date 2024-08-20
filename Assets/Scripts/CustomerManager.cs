@@ -59,7 +59,6 @@ public class CustomerManager : MonoBehaviour
         customer.Recipe = e.RecipeSO;
 
         List<Transform> entrancePath = new List<Transform>(entrance);
-        Debug.Log(e.RecipeSO);
         entrancePath.Add(GetFreeSeat(e.RecipeSO));
         customer.Path = entrancePath;
         customer.ExitPath = exit;

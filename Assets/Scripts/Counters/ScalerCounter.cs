@@ -10,6 +10,7 @@ public class ScalerCounter : Counter
         {
             if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
             {
+                GameManager.Instance.IsGamePaused = true;
                 GameManager.Instance.PlateKitchenObject = plateKitchenObject;
                 if (GameManager.Instance.GetScaledPlateRecipeSO() != null) {
                     GameManager.Instance.ToggleMinigameStart(true);

@@ -17,6 +17,7 @@ public class PlateCounter : Counter
 
     void Update()
     {
+        if (GameManager.Instance.IsGamePaused) return;
         spawnPlateTimer += Time.deltaTime;
         if (spawnPlateTimer > spawnPlateTimerMax)
         {
